@@ -43,7 +43,7 @@
     // Keep both trials in the DOM; switching trials pauses the hidden pair.
     comparison.innerHTML = media.filter(m=>m.group==='comparison').sort((a,b)=>a.trial-b.trial||b.method.localeCompare(a.method)).map(m=>`<article class="video-card" data-trial-card="${m.trial}" ${m.trial!==1?'hidden':''}>${videoMarkup(m,`Bend and pick trial ${m.trial}, ${m.method}, ${m.outcome}`)}<div class="video-meta"><strong>${escape(m.method)}</strong>${outcome(m.outcome)}</div></article>`).join('');
     const homes = document.querySelector('#homes-grid');
-    homes.innerHTML = media.filter(m=>m.group==='homes').map((m,index)=>`<article class="home-card">${videoMarkup(m,`${m.title}, ${m.tasks.length} tasks, 5 times speed`)}<div class="home-heading"><h3>${escape(m.title)}</h3><span>Home ${String(index+1).padStart(2,'0')} · ${m.tasks.length} tasks</span></div><ol class="task-sequence" aria-label="Task execution order">${m.tasks.map(task=>`<li>${escape(task)}</li>`).join('')}</ol></article>`).join('');
+    homes.innerHTML = media.filter(m=>m.group==='homes').map((m,index)=>`<article class="home-card">${videoMarkup(m,`Sequence ${index+1}, ${m.tasks.length} tasks, 5 times speed`)}<div class="home-heading"><h3>Sequence ${String(index+1).padStart(2,'0')}</h3></div><ol class="task-sequence" aria-label="Task execution order">${m.tasks.map(task=>`<li>${escape(task)}</li>`).join('')}</ol></article>`).join('');
     register(starts); register(station); register(comparison); register(homes);
     document.querySelectorAll('[data-task]').forEach(button=>button.addEventListener('click',()=>{
       document.querySelectorAll('[data-task]').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});
