@@ -177,3 +177,20 @@ code { font-family:'DM Sans',Arial,sans-serif; font-size:.91em; letter-spacing:-
  .footer { flex-wrap:wrap; gap:14px; padding-block:24px; } .footer p { display:none; } .speed-note { font-size:12px; }
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*:before,*:after { transition:none!important; animation:none!important; } }
+
+/* Keep each ablation comparison on a single row at every viewport width. */
+.station-grid, .comparison-grid { gap:16px; max-width:none; overflow-x:auto; padding-bottom:12px; scroll-snap-type:x proximity; scrollbar-width:thin; scrollbar-color:#c8bcd9 transparent; }
+.station-grid { grid-template-columns:repeat(6,minmax(0,1fr)); }
+.comparison-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.station-grid>.video-card, .comparison-grid>.video-card { scroll-snap-align:start; }
+.row-video-title { margin:0 0 10px; font-size:15px; line-height:1.5; font-weight:550; }
+.station-grid .video-meta, .comparison-grid .video-meta { align-items:flex-start; flex-wrap:wrap; gap:6px; font-size:13px; }
+.comparison-grid .video-meta strong { font-size:14px; }
+@media(max-width:1100px) {
+ .station-grid { grid-template-columns:repeat(6,minmax(185px,1fr)); }
+ .comparison-grid { grid-template-columns:repeat(4,minmax(215px,1fr)); }
+}
+@media(max-width:760px) {
+ .station-grid { grid-template-columns:repeat(6,230px); gap:14px; }
+ .comparison-grid { grid-template-columns:repeat(4,250px); gap:14px; }
+}

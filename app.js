@@ -31,27 +31,22 @@
   const videoMarkup = (m,label) => `<div class="media-frame"><video controls muted loop playsinline preload="none" data-src="${escape(m.src)}" poster="${escape(m.poster)}" aria-label="${escape(label)}"></video></div>`;
   const outcome = value => `<span class="outcome ${value.toLowerCase()}">${value}</span>`;
   try {
-    const response = await fetch('video-manifest.json');
+    const response = await fetch('video-manifest.json?v=20261119-rows');
     if (!response.ok) throw new Error('Manifest unavailable');
     const media = await response.json();
     const tasks = [['close_door','Close door'],['open_oven','Open oven'],['open_trash_can','Open trash can'],['push_office_chair','Push office chair'],['bend_pick','Bend & pick']];
     const starts = document.querySelector('#starts-grid');
     starts.innerHTML = tasks.map(([key,title]) => `<div class="task-group" data-task-group="${key}"><div class="task-heading"><h3>${escape(title)}</h3><span>4 initial positions</span></div><div class="starts-row">${media.filter(m=>m.group==='starts'&&m.task===key).sort((a,b)=>a.start-b.start).map(m=>`<article class="video-card">${videoMarkup(m,`${title}, initial position ${m.start}, 5 times speed`)}<div class="video-meta"><strong>Initial position ${String(m.start).padStart(2,'0')}</strong><span>5×</span></div></article>`).join('')}</div></div>`).join('');
     const station = document.querySelector('#station-grid');
-    station.innerHTML = [['open_oven','Open oven'],['open_trash_can','Open trash can'],['bend_pick','Bend & pick']].map(([key,title])=>`<div class="station-column"><h3>${escape(title)}</h3>${media.filter(m=>m.group==='station'&&m.task===key).sort((a,b)=>a.method.localeCompare(b.method)).map(m=>`<article class="video-card">${videoMarkup(m,`${title}, ${m.method}, ${m.outcome}`)}<div class="video-meta"><strong>${escape(m.method)}</strong>${outcome(m.outcome)}</div></article>`).join('')}</div>`).join('');
+    station.innerHTML = [['open_oven','Open oven'],['open_trash_can','Open trash can'],['bend_pick','Bend & pick']].flatMap(([key,title])=>media.filter(m=>m.group==='station'&&m.task===key).sort((a,b)=>a.method.localeCompare(b.method)).map(m=>`<article class="video-card"><h4 class="row-video-title">${escape(title)}</h4>${videoMarkup(m,`${title}, ${m.method}, ${m.outcome}`)}<div class="video-meta"><strong>${escape(m.method)}</strong>${outcome(m.outcome)}</div></article>`)).join('');
     const comparison = document.querySelector('#comparison-grid');
-    // Keep both trials in the DOM; switching trials pauses the hidden pair.
-    comparison.innerHTML = media.filter(m=>m.group==='comparison').sort((a,b)=>a.trial-b.trial||b.method.localeCompare(a.method)).map(m=>`<article class="video-card" data-trial-card="${m.trial}" ${m.trial!==1?'hidden':''}>${videoMarkup(m,`Bend and pick trial ${m.trial}, ${m.method}, ${m.outcome}`)}<div class="video-meta"><strong>${escape(m.method)}</strong>${outcome(m.outcome)}</div></article>`).join('');
+    comparison.innerHTML = media.filter(m=>m.group==='comparison').sort((a,b)=>a.trial-b.trial||b.method.localeCompare(a.method)).map(m=>`<article class="video-card" data-trial-card="${m.trial}"><h4 class="row-video-title">Trial ${m.trial}</h4>${videoMarkup(m,`Bend and pick trial ${m.trial}, ${m.method}, ${m.outcome}`)}<div class="video-meta"><strong>${escape(m.method)}</strong>${outcome(m.outcome)}</div></article>`).join('');
     const homes = document.querySelector('#homes-grid');
     homes.innerHTML = media.filter(m=>m.group==='homes').map((m,index)=>`<article class="home-card">${videoMarkup(m,`Sequence ${index+1}, ${m.tasks.length} tasks, 5 times speed`)}<div class="home-heading"><h3>Sequence ${String(index+1).padStart(2,'0')}</h3></div><ol class="task-sequence" aria-label="Task execution order">${m.tasks.map(task=>`<li>${escape(task)}</li>`).join('')}</ol></article>`).join('');
     register(starts); register(station); register(comparison); register(homes);
     document.querySelectorAll('[data-task]').forEach(button=>button.addEventListener('click',()=>{
       document.querySelectorAll('[data-task]').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});
       starts.querySelectorAll('[data-task-group]').forEach(group=>{group.hidden=button.dataset.task!=='all'&&group.dataset.taskGroup!==button.dataset.task;group.querySelectorAll('video').forEach(video=>{if(group.hidden)video.pause();else if(visible.has(video))play(video);});});
-    }));
-    document.querySelectorAll('[data-trial]').forEach(button=>button.addEventListener('click',()=>{
-      document.querySelectorAll('[data-trial]').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});
-      comparison.querySelectorAll('[data-trial-card]').forEach(card=>{card.hidden=card.dataset.trialCard!==button.dataset.trial;card.querySelectorAll('video').forEach(video=>{if(card.hidden)video.pause();else if(visible.has(video))play(video);});});
     }));
   } catch(error) { document.querySelector('.load-error').hidden=false; console.error(error); }
   const links=[...document.querySelectorAll('.header nav a')];
