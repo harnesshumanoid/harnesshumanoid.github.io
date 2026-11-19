@@ -31,14 +31,14 @@
   const videoMarkup = (m,label) => `<div class="media-frame"><video controls muted loop playsinline preload="none" data-src="${escape(m.src)}" poster="${escape(m.poster)}" aria-label="${escape(label)}"></video></div>`;
   const outcome = value => `<span class="outcome ${value.toLowerCase()}">${value}</span>`;
   try {
-    const response = await fetch('video-manifest.json?v=20261119-rows');
+    const response = await fetch('video-manifest.json?v=20261119-panels');
     if (!response.ok) throw new Error('Manifest unavailable');
     const media = await response.json();
     const tasks = [['close_door','Close door'],['open_oven','Open oven'],['open_trash_can','Open trash can'],['push_office_chair','Push office chair'],['bend_pick','Bend & pick']];
     const starts = document.querySelector('#starts-grid');
     starts.innerHTML = tasks.map(([key,title]) => `<div class="task-group" data-task-group="${key}"><div class="task-heading"><h3>${escape(title)}</h3><span>4 initial positions</span></div><div class="starts-row">${media.filter(m=>m.group==='starts'&&m.task===key).sort((a,b)=>a.start-b.start).map(m=>`<article class="video-card">${videoMarkup(m,`${title}, initial position ${m.start}, 5 times speed`)}<div class="video-meta"><strong>Initial position ${String(m.start).padStart(2,'0')}</strong><span>5×</span></div></article>`).join('')}</div></div>`).join('');
     const station = document.querySelector('#station-grid');
-    station.innerHTML = [['open_oven','Open oven'],['open_trash_can','Open trash can'],['bend_pick','Bend & pick']].flatMap(([key,title])=>media.filter(m=>m.group==='station'&&m.task===key).sort((a,b)=>a.method.localeCompare(b.method)).map(m=>`<article class="video-card"><h4 class="row-video-title">${escape(title)}</h4>${videoMarkup(m,`${title}, ${m.method}, ${m.outcome}`)}<div class="video-meta"><strong>${escape(m.method)}</strong>${outcome(m.outcome)}</div></article>`)).join('');
+    station.innerHTML = ['HarnessHumanoid','Without adjustment'].flatMap(method=>[['open_oven','Open oven'],['open_trash_can','Open trash can'],['bend_pick','Bend & pick']].flatMap(([key,title])=>media.filter(m=>m.group==='station'&&m.task===key&&m.method===method).map(m=>`<article class="video-card"><h4 class="row-video-title">${escape(title)}</h4>${videoMarkup(m,`${title}, ${m.method}, ${m.outcome}`)}<div class="video-meta"><strong>${escape(m.method)}</strong>${outcome(m.outcome)}</div></article>`))).join('');
     const comparison = document.querySelector('#comparison-grid');
     comparison.innerHTML = media.filter(m=>m.group==='comparison').sort((a,b)=>a.trial-b.trial||b.method.localeCompare(a.method)).map(m=>`<article class="video-card" data-trial-card="${m.trial}"><h4 class="row-video-title">Trial ${m.trial}</h4>${videoMarkup(m,`Bend and pick trial ${m.trial}, ${m.method}, ${m.outcome}`)}<div class="video-meta"><strong>${escape(m.method)}</strong>${outcome(m.outcome)}</div></article>`).join('');
     const homes = document.querySelector('#homes-grid');

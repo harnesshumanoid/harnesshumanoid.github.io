@@ -178,19 +178,28 @@ code { font-family:'DM Sans',Arial,sans-serif; font-size:.91em; letter-spacing:-
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*:before,*:after { transition:none!important; animation:none!important; } }
 
-/* Keep each ablation comparison on a single row at every viewport width. */
-.station-grid, .comparison-grid { gap:16px; max-width:none; overflow-x:auto; padding-bottom:12px; scroll-snap-type:x proximity; scrollbar-width:thin; scrollbar-color:#c8bcd9 transparent; }
-.station-grid { grid-template-columns:repeat(6,minmax(0,1fr)); }
-.comparison-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
-.station-grid>.video-card, .comparison-grid>.video-card { scroll-snap-align:start; }
-.row-video-title { margin:0 0 10px; font-size:15px; line-height:1.5; font-weight:550; }
-.station-grid .video-meta, .comparison-grid .video-meta { align-items:flex-start; flex-wrap:wrap; gap:6px; font-size:13px; }
-.comparison-grid .video-meta strong { font-size:14px; }
+
+/* One experiment, two adjacent subsections with equally sized video cells. */
+.ablation-panels { display:grid; grid-template-columns:3fr 2fr; gap:32px; align-items:start; }
+.ablation-panel { min-width:0; scroll-margin-top:108px; }
+.ablation-panel .subsection-heading { margin:0 0 14px; }
+.panel-toolbar { min-height:28px; margin-bottom:16px; }
+.station-grid, .comparison-grid { gap:20px 14px; max-width:none; align-items:start; }
+.station-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.comparison-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.row-video-title { margin:0 0 10px; font-size:14px; line-height:1.5; font-weight:550; }
+.station-grid .video-meta, .comparison-grid .video-meta { align-items:flex-start; flex-wrap:wrap; gap:5px; font-size:12px; min-height:38px; }
+.comparison-grid .video-meta strong { font-size:13px; }
 @media(max-width:1100px) {
- .station-grid { grid-template-columns:repeat(6,minmax(185px,1fr)); }
- .comparison-grid { grid-template-columns:repeat(4,minmax(215px,1fr)); }
+ .ablation-panels { gap:24px; }
+ .station-grid, .comparison-grid { gap:18px 10px; }
+ .station-grid .video-meta, .comparison-grid .video-meta { min-height:48px; }
 }
-@media(max-width:760px) {
- .station-grid { grid-template-columns:repeat(6,230px); gap:14px; }
- .comparison-grid { grid-template-columns:repeat(4,250px); gap:14px; }
+@media(max-width:800px) {
+ .ablation-panels { grid-template-columns:1fr; gap:38px; }
+ .station-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ .comparison-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .row-video-title { font-size:12px; }
+ .station-grid .video-meta, .comparison-grid .video-meta { min-height:46px; }
+ .station-grid .video-meta strong { font-size:11px; }
 }
