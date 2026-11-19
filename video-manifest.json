@@ -1,0 +1,650 @@
+[
+  {
+    "id": "bend_pick_trial01_IK_failure",
+    "src": "assets/final/bend_pick_trial01_IK_failure.mp4",
+    "poster": "assets/final/bend_pick_trial01_IK_failure.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/BendPick_IK_vs_VLA/bend_pick_trial01_IK_failure.1080p25.mp4",
+    "speed": 1,
+    "duration": 5.84,
+    "group": "comparison",
+    "trial": 1,
+    "method": "IK",
+    "outcome": "Failure"
+  },
+  {
+    "id": "bend_pick_trial01_VLA_success",
+    "src": "assets/final/bend_pick_trial01_VLA_success.mp4",
+    "poster": "assets/final/bend_pick_trial01_VLA_success.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/BendPick_IK_vs_VLA/bend_pick_trial01_VLA_success.1080p25.mp4",
+    "speed": 1,
+    "duration": 14.56,
+    "group": "comparison",
+    "trial": 1,
+    "method": "Whole-body VLA",
+    "outcome": "Success"
+  },
+  {
+    "id": "bend_pick_trial02_IK_failure",
+    "src": "assets/final/bend_pick_trial02_IK_failure.mp4",
+    "poster": "assets/final/bend_pick_trial02_IK_failure.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/BendPick_IK_vs_VLA/bend_pick_trial02_IK_failure.1080p25.mp4",
+    "speed": 1,
+    "duration": 4.92,
+    "group": "comparison",
+    "trial": 2,
+    "method": "IK",
+    "outcome": "Failure"
+  },
+  {
+    "id": "bend_pick_trial02_VLA_success",
+    "src": "assets/final/bend_pick_trial02_VLA_success.mp4",
+    "poster": "assets/final/bend_pick_trial02_VLA_success.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/BendPick_IK_vs_VLA/bend_pick_trial02_VLA_success.1080p25.mp4",
+    "speed": 1,
+    "duration": 6.44,
+    "group": "comparison",
+    "trial": 2,
+    "method": "Whole-body VLA",
+    "outcome": "Success"
+  },
+  {
+    "id": "bend_pick_long_00",
+    "src": "assets/final/bend_pick_long_00.mp4",
+    "poster": "assets/final/bend_pick_long_00.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/bend_pick_long_00.1080p25.mp4",
+    "speed": 5,
+    "duration": 4.8,
+    "group": "starts",
+    "task": "bend_pick",
+    "title": "Bend & pick",
+    "start": 1
+  },
+  {
+    "id": "bend_pick_long_01",
+    "src": "assets/final/bend_pick_long_01.mp4",
+    "poster": "assets/final/bend_pick_long_01.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/bend_pick_long_01.1080p25.mp4",
+    "speed": 5,
+    "duration": 3.68,
+    "group": "starts",
+    "task": "bend_pick",
+    "title": "Bend & pick",
+    "start": 2
+  },
+  {
+    "id": "bend_pick_long_02",
+    "src": "assets/final/bend_pick_long_02.mp4",
+    "poster": "assets/final/bend_pick_long_02.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/bend_pick_long_02.1080p25.mp4",
+    "speed": 5,
+    "duration": 4.12,
+    "group": "starts",
+    "task": "bend_pick",
+    "title": "Bend & pick",
+    "start": 3
+  },
+  {
+    "id": "bend_pick_long_03",
+    "src": "assets/final/bend_pick_long_03.mp4",
+    "poster": "assets/final/bend_pick_long_03.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/bend_pick_long_03.1080p25.mp4",
+    "speed": 5,
+    "duration": 4.84,
+    "group": "starts",
+    "task": "bend_pick",
+    "title": "Bend & pick",
+    "start": 4
+  },
+  {
+    "id": "close_door_long_00",
+    "src": "assets/final/close_door_long_00.mp4",
+    "poster": "assets/final/close_door_long_00.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/close_door_long_00.1080p25.mp4",
+    "speed": 5,
+    "duration": 6.0,
+    "group": "starts",
+    "task": "close_door",
+    "title": "Close door",
+    "start": 1
+  },
+  {
+    "id": "close_door_long_01",
+    "src": "assets/final/close_door_long_01.mp4",
+    "poster": "assets/final/close_door_long_01.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/close_door_long_01.1080p25.mp4",
+    "speed": 5,
+    "duration": 10.04,
+    "group": "starts",
+    "task": "close_door",
+    "title": "Close door",
+    "start": 2
+  },
+  {
+    "id": "close_door_long_02",
+    "src": "assets/final/close_door_long_02.mp4",
+    "poster": "assets/final/close_door_long_02.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/close_door_long_02.1080p25.mp4",
+    "speed": 5,
+    "duration": 4.0,
+    "group": "starts",
+    "task": "close_door",
+    "title": "Close door",
+    "start": 3
+  },
+  {
+    "id": "close_door_long_03",
+    "src": "assets/final/close_door_long_03.mp4",
+    "poster": "assets/final/close_door_long_03.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/close_door_long_03.1080p25.mp4",
+    "speed": 5,
+    "duration": 6.48,
+    "group": "starts",
+    "task": "close_door",
+    "title": "Close door",
+    "start": 4
+  },
+  {
+    "id": "open_oven_long_00",
+    "src": "assets/final/open_oven_long_00.mp4",
+    "poster": "assets/final/open_oven_long_00.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/open_oven_long_00.1080p25.mp4",
+    "speed": 5,
+    "duration": 16.16,
+    "group": "starts",
+    "task": "open_oven",
+    "title": "Open oven",
+    "start": 1
+  },
+  {
+    "id": "open_oven_long_01",
+    "src": "assets/final/open_oven_long_01.mp4",
+    "poster": "assets/final/open_oven_long_01.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/open_oven_long_01.1080p25.mp4",
+    "speed": 5,
+    "duration": 17.24,
+    "group": "starts",
+    "task": "open_oven",
+    "title": "Open oven",
+    "start": 2
+  },
+  {
+    "id": "open_oven_long_02",
+    "src": "assets/final/open_oven_long_02.mp4",
+    "poster": "assets/final/open_oven_long_02.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/open_oven_long_02.1080p25.mp4",
+    "speed": 5,
+    "duration": 15.72,
+    "group": "starts",
+    "task": "open_oven",
+    "title": "Open oven",
+    "start": 3
+  },
+  {
+    "id": "open_oven_long_03",
+    "src": "assets/final/open_oven_long_03.mp4",
+    "poster": "assets/final/open_oven_long_03.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/open_oven_long_03.1080p25.mp4",
+    "speed": 5,
+    "duration": 17.16,
+    "group": "starts",
+    "task": "open_oven",
+    "title": "Open oven",
+    "start": 4
+  },
+  {
+    "id": "open_trash_can_long_00",
+    "src": "assets/final/open_trash_can_long_00.mp4",
+    "poster": "assets/final/open_trash_can_long_00.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/open_trash_can_long_00.1080p25.mp4",
+    "speed": 5,
+    "duration": 9.24,
+    "group": "starts",
+    "task": "open_trash_can",
+    "title": "Open trash can",
+    "start": 1
+  },
+  {
+    "id": "open_trash_can_long_01",
+    "src": "assets/final/open_trash_can_long_01.mp4",
+    "poster": "assets/final/open_trash_can_long_01.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/open_trash_can_long_01.1080p25.mp4",
+    "speed": 5,
+    "duration": 6.04,
+    "group": "starts",
+    "task": "open_trash_can",
+    "title": "Open trash can",
+    "start": 2
+  },
+  {
+    "id": "open_trash_can_long_02",
+    "src": "assets/final/open_trash_can_long_02.mp4",
+    "poster": "assets/final/open_trash_can_long_02.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/open_trash_can_long_02.1080p25.mp4",
+    "speed": 5,
+    "duration": 4.92,
+    "group": "starts",
+    "task": "open_trash_can",
+    "title": "Open trash can",
+    "start": 3
+  },
+  {
+    "id": "open_trash_can_long_03",
+    "src": "assets/final/open_trash_can_long_03.mp4",
+    "poster": "assets/final/open_trash_can_long_03.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/open_trash_can_long_03.1080p25.mp4",
+    "speed": 5,
+    "duration": 13.76,
+    "group": "starts",
+    "task": "open_trash_can",
+    "title": "Open trash can",
+    "start": 4
+  },
+  {
+    "id": "push_office_chair_long_00",
+    "src": "assets/final/push_office_chair_long_00.mp4",
+    "poster": "assets/final/push_office_chair_long_00.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/push_office_chair_long_00.1080p25.mp4",
+    "speed": 5,
+    "duration": 9.68,
+    "group": "starts",
+    "task": "push_office_chair",
+    "title": "Push office chair",
+    "start": 1
+  },
+  {
+    "id": "push_office_chair_long_01",
+    "src": "assets/final/push_office_chair_long_01.mp4",
+    "poster": "assets/final/push_office_chair_long_01.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/push_office_chair_long_01.1080p25.mp4",
+    "speed": 5,
+    "duration": 8.6,
+    "group": "starts",
+    "task": "push_office_chair",
+    "title": "Push office chair",
+    "start": 2
+  },
+  {
+    "id": "push_office_chair_long_02",
+    "src": "assets/final/push_office_chair_long_02.mp4",
+    "poster": "assets/final/push_office_chair_long_02.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/push_office_chair_long_02.1080p25.mp4",
+    "speed": 5,
+    "duration": 7.88,
+    "group": "starts",
+    "task": "push_office_chair",
+    "title": "Push office chair",
+    "start": 3
+  },
+  {
+    "id": "push_office_chair_long_03",
+    "src": "assets/final/push_office_chair_long_03.mp4",
+    "poster": "assets/final/push_office_chair_long_03.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Cross_room_20_1080p25_20261119/push_office_chair_long_03.1080p25.mp4",
+    "speed": 5,
+    "duration": 5.12,
+    "group": "starts",
+    "task": "push_office_chair",
+    "title": "Push office chair",
+    "start": 4
+  },
+  {
+    "id": "bend_pick_HarnessHumanoid_success",
+    "src": "assets/final/bend_pick_HarnessHumanoid_success.mp4",
+    "poster": "assets/final/bend_pick_HarnessHumanoid_success.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Station_adjustment/bend_pick_HarnessHumanoid_success.1080p25.mp4",
+    "speed": 1,
+    "duration": 40.68,
+    "group": "station",
+    "task": "bend_pick",
+    "method": "HarnessHumanoid",
+    "outcome": "Success"
+  },
+  {
+    "id": "bend_pick_wo_Adjustment_failure",
+    "src": "assets/final/bend_pick_wo_Adjustment_failure.mp4",
+    "poster": "assets/final/bend_pick_wo_Adjustment_failure.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Station_adjustment/bend_pick_wo_Adjustment_failure.1080p25.mp4",
+    "speed": 1,
+    "duration": 24.0,
+    "group": "station",
+    "task": "bend_pick",
+    "method": "Without adjustment",
+    "outcome": "Failure"
+  },
+  {
+    "id": "open_oven_HarnessHumanoid_success",
+    "src": "assets/final/open_oven_HarnessHumanoid_success.mp4",
+    "poster": "assets/final/open_oven_HarnessHumanoid_success.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Station_adjustment/open_oven_HarnessHumanoid_success.1080p25.mp4",
+    "speed": 1,
+    "duration": 73.32,
+    "group": "station",
+    "task": "open_oven",
+    "method": "HarnessHumanoid",
+    "outcome": "Success"
+  },
+  {
+    "id": "open_oven_wo_Adjustment_failure",
+    "src": "assets/final/open_oven_wo_Adjustment_failure.mp4",
+    "poster": "assets/final/open_oven_wo_Adjustment_failure.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Station_adjustment/open_oven_wo_Adjustment_failure.1080p25.mp4",
+    "speed": 1,
+    "duration": 300.04,
+    "group": "station",
+    "task": "open_oven",
+    "method": "Without adjustment",
+    "outcome": "Failure"
+  },
+  {
+    "id": "open_trash_can_HarnessHumanoid_success",
+    "src": "assets/final/open_trash_can_HarnessHumanoid_success.mp4",
+    "poster": "assets/final/open_trash_can_HarnessHumanoid_success.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Station_adjustment/open_trash_can_HarnessHumanoid_success.1080p25.mp4",
+    "speed": 1,
+    "duration": 21.6,
+    "group": "station",
+    "task": "open_trash_can",
+    "method": "HarnessHumanoid",
+    "outcome": "Success"
+  },
+  {
+    "id": "open_trash_can_wo_Adjustment_failure",
+    "src": "assets/final/open_trash_can_wo_Adjustment_failure.mp4",
+    "poster": "assets/final/open_trash_can_wo_Adjustment_failure.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/Station_adjustment/open_trash_can_wo_Adjustment_failure.1080p25.mp4",
+    "speed": 1,
+    "duration": 32.04,
+    "group": "station",
+    "task": "open_trash_can",
+    "method": "Without adjustment",
+    "outcome": "Failure"
+  },
+  {
+    "id": "home01_boutique_master_suite",
+    "src": "assets/final/home01_boutique_master_suite.mp4",
+    "poster": "assets/final/home01_boutique_master_suite.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home01_boutique_master_suite.1080p25.mp4",
+    "speed": 5,
+    "duration": 19.28,
+    "group": "homes",
+    "title": "Boutique Master Suite",
+    "tasks": [
+      "Push office chair",
+      "Close door",
+      "Bend & pick"
+    ],
+    "task_ids": [
+      "push_office_chair",
+      "close_door",
+      "bend_pick"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  },
+  {
+    "id": "home02_compact_marble_kitchen",
+    "src": "assets/final/home02_compact_marble_kitchen.mp4",
+    "poster": "assets/final/home02_compact_marble_kitchen.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home02_compact_marble_kitchen.1080p25.mp4",
+    "speed": 5,
+    "duration": 38.76,
+    "group": "homes",
+    "title": "Compact Marble Kitchen",
+    "tasks": [
+      "Open trash can",
+      "Close door",
+      "Open oven",
+      "Push office chair"
+    ],
+    "task_ids": [
+      "open_trash_can",
+      "close_door",
+      "open_oven",
+      "push_office_chair"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  },
+  {
+    "id": "home03_sunken_designer_lounge",
+    "src": "assets/final/home03_sunken_designer_lounge.mp4",
+    "poster": "assets/final/home03_sunken_designer_lounge.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home03_sunken_designer_lounge.1080p25.mp4",
+    "speed": 5,
+    "duration": 38.4,
+    "group": "homes",
+    "title": "Sunken Designer Lounge",
+    "tasks": [
+      "Push office chair",
+      "Open trash can",
+      "Close door",
+      "Open oven",
+      "Bend & pick"
+    ],
+    "task_ids": [
+      "push_office_chair",
+      "open_trash_can",
+      "close_door",
+      "open_oven",
+      "bend_pick"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  },
+  {
+    "id": "home04_gallery_railway_apartment",
+    "src": "assets/final/home04_gallery_railway_apartment.mp4",
+    "poster": "assets/final/home04_gallery_railway_apartment.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home04_gallery_railway_apartment.1080p25.mp4",
+    "speed": 5,
+    "duration": 22.4,
+    "group": "homes",
+    "title": "Gallery Railway Apartment",
+    "tasks": [
+      "Close door",
+      "Push office chair",
+      "Bend & pick"
+    ],
+    "task_ids": [
+      "close_door",
+      "push_office_chair",
+      "bend_pick"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  },
+  {
+    "id": "home05_japanese_library_bedroom",
+    "src": "assets/final/home05_japanese_library_bedroom.mp4",
+    "poster": "assets/final/home05_japanese_library_bedroom.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home05_japanese_library_bedroom.1080p25.mp4",
+    "speed": 5,
+    "duration": 35.84,
+    "group": "homes",
+    "title": "Japanese Library Bedroom",
+    "tasks": [
+      "Open oven",
+      "Push office chair",
+      "Close door",
+      "Open trash can"
+    ],
+    "task_ids": [
+      "open_oven",
+      "push_office_chair",
+      "close_door",
+      "open_trash_can"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  },
+  {
+    "id": "home06_conversation_salon",
+    "src": "assets/final/home06_conversation_salon.mp4",
+    "poster": "assets/final/home06_conversation_salon.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home06_conversation_salon.1080p25.mp4",
+    "speed": 5,
+    "duration": 43.32,
+    "group": "homes",
+    "title": "Conversation Salon",
+    "tasks": [
+      "Open oven",
+      "Close door",
+      "Push office chair",
+      "Open trash can",
+      "Bend & pick"
+    ],
+    "task_ids": [
+      "open_oven",
+      "close_door",
+      "push_office_chair",
+      "open_trash_can",
+      "bend_pick"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  },
+  {
+    "id": "home07_industrial_mezzanine_loft",
+    "src": "assets/final/home07_industrial_mezzanine_loft.mp4",
+    "poster": "assets/final/home07_industrial_mezzanine_loft.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home07_industrial_mezzanine_loft.1080p25.mp4",
+    "speed": 5,
+    "duration": 62.0,
+    "group": "homes",
+    "title": "Industrial Mezzanine Loft",
+    "tasks": [
+      "Open oven",
+      "Open faucet",
+      "Push office chair",
+      "Close door",
+      "Open trash can",
+      "Bend & pick"
+    ],
+    "task_ids": [
+      "open_oven",
+      "open_faucet",
+      "push_office_chair",
+      "close_door",
+      "open_trash_can",
+      "bend_pick"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  },
+  {
+    "id": "home08_glass_courtyard_house",
+    "src": "assets/final/home08_glass_courtyard_house.mp4",
+    "poster": "assets/final/home08_glass_courtyard_house.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home08_glass_courtyard_house.1080p25.mp4",
+    "speed": 5,
+    "duration": 32.6,
+    "group": "homes",
+    "title": "Glass Courtyard House",
+    "tasks": [
+      "Push office chair",
+      "Open trash can",
+      "Open oven",
+      "Close door"
+    ],
+    "task_ids": [
+      "push_office_chair",
+      "open_trash_can",
+      "open_oven",
+      "close_door"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  },
+  {
+    "id": "home09_artdeco_dining_salon",
+    "src": "assets/final/home09_artdeco_dining_salon.mp4",
+    "poster": "assets/final/home09_artdeco_dining_salon.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home09_artdeco_dining_salon.1080p25.mp4",
+    "speed": 5,
+    "duration": 38.24,
+    "group": "homes",
+    "title": "Artdeco Dining Salon",
+    "tasks": [
+      "Open trash can",
+      "Push office chair",
+      "Open oven",
+      "Close door",
+      "Bend & pick"
+    ],
+    "task_ids": [
+      "open_trash_can",
+      "push_office_chair",
+      "open_oven",
+      "close_door",
+      "bend_pick"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  },
+  {
+    "id": "home10_spa_dressing_suite",
+    "src": "assets/final/home10_spa_dressing_suite.mp4",
+    "poster": "assets/final/home10_spa_dressing_suite.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home10_spa_dressing_suite.1080p25.mp4",
+    "speed": 5,
+    "duration": 38.24,
+    "group": "homes",
+    "title": "Spa Dressing Suite",
+    "tasks": [
+      "Open faucet",
+      "Push office chair",
+      "Close door",
+      "Open trash can",
+      "Bend & pick"
+    ],
+    "task_ids": [
+      "open_faucet",
+      "push_office_chair",
+      "close_door",
+      "open_trash_can",
+      "bend_pick"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  },
+  {
+    "id": "home11_double_galley_residence",
+    "src": "assets/final/home11_double_galley_residence.mp4",
+    "poster": "assets/final/home11_double_galley_residence.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home11_double_galley_residence.1080p25.mp4",
+    "speed": 5,
+    "duration": 42.64,
+    "group": "homes",
+    "title": "Double Galley Residence",
+    "tasks": [
+      "Open trash can",
+      "Close door",
+      "Open faucet",
+      "Push office chair",
+      "Bend & pick"
+    ],
+    "task_ids": [
+      "open_trash_can",
+      "close_door",
+      "open_faucet",
+      "push_office_chair",
+      "bend_pick"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  },
+  {
+    "id": "home12_attic_reading_suite",
+    "src": "assets/final/home12_attic_reading_suite.mp4",
+    "poster": "assets/final/home12_attic_reading_suite.jpg",
+    "source": "analysis/psi0_harness/eval5_20261105/E5_long_horizon/presentation_success_replay_12homes_20261119/final_videos/home12_attic_reading_suite.1080p25.mp4",
+    "speed": 5,
+    "duration": 38.8,
+    "group": "homes",
+    "title": "Attic Reading Suite",
+    "tasks": [
+      "Push office chair",
+      "Open faucet",
+      "Open trash can",
+      "Close door",
+      "Bend & pick"
+    ],
+    "task_ids": [
+      "push_office_chair",
+      "open_faucet",
+      "open_trash_can",
+      "close_door",
+      "bend_pick"
+    ],
+    "provenance": "Successful trajectory presentation replay"
+  }
+]
