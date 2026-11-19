@@ -5,14 +5,24 @@
 <meta name="theme-color" content="#15132a">
 <meta name="description" content="HarnessHumanoid: An Agentic System for Long-Horizon Whole-Body Loco-Manipulation. Explore initial-position demonstrations, stance adjustment, whole-body execution, and twelve furnished homes.">
 <title>HarnessHumanoid | Long-Horizon Whole-Body Loco-Manipulation</title>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20261119-3x">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20261119-authors">
 </head>
 <body>
 <header class="header"><a class="brand" href="#top"><span class="brand-icon">H<span></span></span>HarnessHumanoid</a><nav aria-label="Main navigation"><a href="#method">Method</a><a href="#initial-positions">Initial poses</a><a href="#adjustment">Stance adjustment</a><a href="#whole-body">IK vs. VLA</a><a href="#long-horizon">Long horizon</a></nav><button class="play-control" id="pause-all" type="button" aria-pressed="false">Pause videos</button></header>
 <main id="top">
 <section class="hero" aria-labelledby="hero-title">
 <div class="hero-wall"><video muted loop playsinline preload="auto" poster="assets/final/homes-wall-editorial-3x.jpg" data-src="assets/final/homes-wall-editorial-3x.mp4" aria-label="Twelve home demonstrations in a four-column, three-row montage, at three times speed"></video></div><div class="hero-shade"></div>
-<div class="hero-content"><h1 id="hero-title">Harness<span>Humanoid</span></h1><p class="hero-subtitle">An Agentic System for Long-Horizon<br>Whole-Body Loco-Manipulation</p><div class="hero-actions"><a class="button primary" href="#initial-positions">Demonstrations</a><a class="button glass" href="#method">Method</a></div></div>
+<div class="hero-content"><h1 id="hero-title">Harness<span>Humanoid</span></h1><p class="hero-subtitle">An Agentic System for Long-Horizon<br>Whole-Body Loco-Manipulation</p><div class="hero-authors" aria-label="Authors">
+<span class="author-item">Yaxue Li<sup>1</sup></span>
+<span class="author-item">Chao Fan<sup>2</sup></span>
+<span class="author-item">Zhou Haoran<sup>2</sup></span>
+<span class="author-item">Ye Shaoze<sup>1</sup></span>
+<span class="author-item">Fanfei Yan<sup>1</sup></span>
+<span class="author-item">Jianqiang Li<sup>1</sup></span>
+<span class="author-item">Chengwen Luo<sup>1,†</sup></span>
+</div>
+<div class="hero-affiliations" aria-label="Affiliations"><span><sup>1</sup> Shenzhen University</span><span><sup>2</sup> Shenzhen Sensing Data Technology Co., Ltd</span></div>
+<p class="author-note"><sup>†</sup> Corresponding author</p><div class="hero-actions"><a class="button primary" href="#initial-positions">Demonstrations</a><a class="button glass" href="#method">Method</a></div></div>
 </section>
 <section class="section shell method-section" id="method" aria-labelledby="method-title"><div class="section-heading"><h2 id="method-title">Method</h2></div><figure class="method-figure"><a href="assets/figures/overview.pdf" target="_blank" rel="noopener" aria-label="Open full-resolution method overview"><img src="assets/figures/overview.png" alt="HarnessHumanoid method overview" width="2600" height="1396"></a></figure></section>
 <section class="section shell" id="initial-positions" aria-labelledby="starts-title"><div class="section-heading"><h2 id="starts-title">Initial-Pose Robustness</h2></div><div class="section-tools"><div class="tabs" role="group" aria-label="Filter demonstrations by task" id="task-filters"><button class="active" aria-pressed="true" data-task="all">All tasks</button><button aria-pressed="false" data-task="close_door">Close door</button><button aria-pressed="false" data-task="open_oven">Open oven</button><button aria-pressed="false" data-task="open_trash_can">Open trash can</button><button aria-pressed="false" data-task="push_office_chair">Push chair</button><button aria-pressed="false" data-task="bend_pick">Bend &amp; pick</button></div><span class="speed-note">3× speed</span></div><div id="starts-grid"></div></section>

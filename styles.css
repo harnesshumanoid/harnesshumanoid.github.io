@@ -203,3 +203,20 @@ code { font-family:'DM Sans',Arial,sans-serif; font-size:.91em; letter-spacing:-
  .station-grid .video-meta, .comparison-grid .video-meta { min-height:46px; }
  .station-grid .video-meta strong { font-size:11px; }
 }
+
+.hero-authors { display:flex; flex-wrap:wrap; justify-content:center; gap:7px 20px; max-width:1100px; margin-top:22px; font-size:17px; line-height:1.8; font-weight:500; color:#fff; }
+.author-item { white-space:nowrap; }
+.hero-authors sup, .hero-affiliations sup { margin-left:2px; font-size:.68em; line-height:0; vertical-align:super; }
+.hero-affiliations { display:flex; flex-wrap:wrap; justify-content:center; gap:5px 24px; max-width:1000px; margin-top:12px; color:#eee7f7; font-size:14px; line-height:1.6; }
+.author-note { margin-top:8px; font-size:13px; line-height:1.6; color:#e2d9ee; }
+.author-note sup { font-size:1em; vertical-align:baseline; }
+.hero-content .hero-actions { margin-top:25px; }
+@media(max-width:1100px) { .hero-authors { gap:5px 16px; font-size:16px; margin-top:19px; } }
+@media(max-width:760px) {
+ .hero { height:auto; min-height:660px; }
+ .hero-content { min-height:660px; height:auto; padding:48px 22px 44px; }
+ .hero-authors { max-width:390px; font-size:15px; gap:5px 17px; margin-top:23px; }
+ .hero-affiliations { flex-direction:column; align-items:center; gap:5px; max-width:360px; margin-top:15px; font-size:13px; }
+ .hero-affiliations span { text-wrap:balance; }
+ .author-note { margin-top:10px; font-size:12px; }
+}
