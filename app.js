@@ -13,6 +13,7 @@
     if (paused || document.hidden || video.closest('[hidden]')) return;
     if (video === heroIntro && introDone) return;
     if (video === heroLoop && !introDone) return;
+    if (video.id === 'real-video') { video.play().catch(() => {}); return; }
     if (!video.getAttribute('src')) { video.src = video.dataset.src; video.load(); }
     video.play().catch(() => {});
   };
@@ -67,6 +68,7 @@
   } catch(error) { document.querySelector('.load-error').hidden=false; console.error(error); }
   const realVideo = document.querySelector('#real-video');
   if (realVideo) {
+    observer.observe(realVideo);
     const player = document.querySelector('#real-player');
     const chapters = [...document.querySelectorAll('.chapter-card')];
     const marks = [0, 7.6, 42.6];
