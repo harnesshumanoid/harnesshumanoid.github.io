@@ -5,13 +5,13 @@
 <meta name="theme-color" content="#15132a">
 <meta name="description" content="HarnessHumanoid: An Agentic System for Long-Horizon Whole-Body Loco-Manipulation. Explore initial-position demonstrations, stance adjustment, whole-body execution, and twelve furnished homes.">
 <title>HarnessHumanoid | Long-Horizon Whole-Body Loco-Manipulation</title>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20261120-hero-size">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20261121-real">
 </head>
 <body>
-<header class="header"><a class="brand" href="#top"><span class="brand-icon">H<span></span></span>HarnessHumanoid</a><nav aria-label="Main navigation"><a href="#method">Method</a><a href="#initial-positions">Initial poses</a><a href="#adjustment">Stance adjustment</a><a href="#whole-body">IK vs. VLA</a><a href="#long-horizon">Long horizon</a></nav><button class="play-control" id="pause-all" type="button" aria-pressed="false">Pause videos</button></header>
+<header class="header"><a class="brand" href="#top"><span class="brand-icon">H<span></span></span>HarnessHumanoid</a><nav aria-label="Main navigation"><a href="#method">Method</a><a href="#initial-positions">Initial poses</a><a href="#adjustment">Stance adjustment</a><a href="#whole-body">IK vs. VLA</a><a href="#long-horizon">Long horizon</a><a href="#real-robot">Real robot</a></nav><button class="play-control" id="pause-all" type="button" aria-pressed="false">Pause videos</button></header>
 <main id="top">
 <section class="hero" aria-labelledby="hero-title">
-<div class="hero-wall"><video muted loop playsinline preload="auto" poster="assets/final/homes-wall-editorial-3x.jpg" data-src="assets/final/homes-wall-editorial-3x.mp4" aria-label="Twelve home demonstrations in a four-column, three-row montage, at three times speed"></video></div><div class="hero-shade"></div>
+<div class="hero-wall"><video class="hero-loop" muted loop playsinline preload="none" poster="assets/final/homes-wall-editorial-3x.jpg" data-src="assets/final/homes-wall-editorial-3x.mp4" aria-label="Twelve home demonstrations in a four-column, three-row montage, at three times speed"></video><video class="hero-intro" muted playsinline preload="auto" poster="assets/real/real-robot-intro.jpg" src="assets/real/real-robot-intro.mp4" aria-hidden="true" tabindex="-1"></video></div><div class="hero-shade"></div>
 <div class="hero-content"><h1 id="hero-title">Harness<span>Humanoid</span></h1><p class="hero-subtitle">An Agentic System for Long-Horizon<br>Whole-Body Loco-Manipulation</p><div class="hero-authors" aria-label="Authors">
 <span class="author-item">Yaxue Li<sup>1</sup></span>
 <span class="author-item">Chao Fan<sup>1,†</sup></span>
@@ -31,9 +31,10 @@
 <section class="ablation-panel" id="whole-body" aria-labelledby="whole-body-title"><div class="subsection-heading"><h3 id="whole-body-title"><code>WHOLE_BODY_VLA</code></h3></div><div class="panel-toolbar"><span class="speed-note">1× speed</span></div><div id="comparison-grid" class="comparison-grid"></div></section>
 </div></div></section>
 <section class="section dark-section" id="long-horizon" aria-labelledby="long-title"><div class="shell"><div class="section-heading"><h2 id="long-title">Long-Horizon Humanoid Loco-Manipulation</h2></div><div class="long-toolbar"><span class="speed-note">3× speed</span></div><div id="homes-grid" class="homes-grid"></div></div></section>
+<section class="section real-section" id="real-robot" aria-labelledby="real-title"><div class="shell"><div class="section-heading"><h2 id="real-title">Real-Robot Execution</h2><p class="section-note">One continuous take on the physical humanoid. The robot closes the door, lifts the box and sets it down, then pushes the chair back into place.</p></div><div class="real-player"><video id="real-video" controls playsinline preload="metadata" poster="assets/real/real-robot-full.jpg"><source src="assets/real/real-robot-full.mp4" type="video/mp4">Your browser does not support the video tag.</video></div><div class="real-chapters" role="group" aria-label="Jump to a task in the real-robot run"><button class="chapter-card" type="button" data-time="0"><span class="chapter-thumb"><img src="assets/real/real-robot-door.jpg" alt="" width="1920" height="1080"><span class="chapter-index">01</span><span class="chapter-play" aria-hidden="true"></span></span><span class="chapter-copy"><strong>Close the door</strong><span>0:00 – 0:08</span></span></button><button class="chapter-card" type="button" data-time="7.6"><span class="chapter-thumb"><img src="assets/real/real-robot-box.jpg" alt="" width="1920" height="1080"><span class="chapter-index">02</span><span class="chapter-play" aria-hidden="true"></span></span><span class="chapter-copy"><strong>Lift and place the box</strong><span>0:08 – 0:43</span></span></button><button class="chapter-card" type="button" data-time="42.6"><span class="chapter-thumb"><img src="assets/real/real-robot-chair.jpg" alt="" width="1920" height="1080"><span class="chapter-index">03</span><span class="chapter-play" aria-hidden="true"></span></span><span class="chapter-copy"><strong>Push the chair</strong><span>0:43 – 0:53</span></span></button></div></div></section>
 
 </main>
 <footer class="shell footer"><a class="brand" href="#top">HarnessHumanoid</a><a href="#top">Back to top</a></footer>
 <div class="load-error" role="alert" hidden>Demonstrations could not be loaded. Please reload the page.</div>
-<script src="app.js?v=20261119-3x" defer></script>
+<script src="app.js?v=20261121-real" defer></script>
 </body></html>

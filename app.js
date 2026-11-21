@@ -4,11 +4,27 @@
   let paused = reduced;
   const visible = new Set();
   const toggle = document.querySelector('#pause-all');
+  const heroWall = document.querySelector('.hero-wall');
+  const heroIntro = document.querySelector('.hero-intro');
+  const heroLoop = document.querySelector('.hero-loop');
+  let introDone = reduced;
+  if (introDone) heroWall.classList.add('intro-done');
   const play = video => {
     if (paused || document.hidden || video.closest('[hidden]')) return;
+    if (video === heroIntro && introDone) return;
+    if (video === heroLoop && !introDone) return;
     if (!video.getAttribute('src')) { video.src = video.dataset.src; video.load(); }
     video.play().catch(() => {});
   };
+  const finishIntro = () => {
+    if (introDone) return;
+    introDone = true;
+    heroWall.classList.add('intro-done');
+    play(heroLoop);
+    setTimeout(() => heroIntro.pause(), 1200);
+  };
+  heroIntro.addEventListener('ended', finishIntro);
+  heroIntro.addEventListener('error', finishIntro);
   const observer = new IntersectionObserver(entries => entries.forEach(({target, isIntersecting}) => {
     if (isIntersecting) { visible.add(target); play(target); }
     else { visible.delete(target); target.pause(); }
@@ -49,6 +65,16 @@
       starts.querySelectorAll('[data-task-group]').forEach(group=>{group.hidden=button.dataset.task!=='all'&&group.dataset.taskGroup!==button.dataset.task;group.querySelectorAll('video').forEach(video=>{if(group.hidden)video.pause();else if(visible.has(video))play(video);});});
     }));
   } catch(error) { document.querySelector('.load-error').hidden=false; console.error(error); }
+  const realVideo = document.querySelector('#real-video');
+  if (realVideo) {
+    const chapters = [...document.querySelectorAll('.chapter-card')];
+    const marks = [0, 7.6, 42.6];
+    const activate = time => chapters.forEach((card, index) => card.classList.toggle('active', index === (time >= marks[2] ? 2 : time >= marks[1] ? 1 : 0)));
+    chapters.forEach(card => card.addEventListener('click', () => { realVideo.currentTime = Number(card.dataset.time); realVideo.play().catch(() => {}); }));
+    realVideo.addEventListener('timeupdate', () => activate(realVideo.currentTime));
+    realVideo.addEventListener('loadedmetadata', () => activate(realVideo.currentTime));
+    activate(0);
+  }
   const links=[...document.querySelectorAll('.header nav a')];
   const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)links.forEach(link=>{const current=link.hash===`#${entry.target.id}`;link.classList.toggle('active',current);if(current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});}),{rootMargin:'-15% 0px -65% 0px'});
   links.forEach(link=>navObserver.observe(document.querySelector(link.hash)));
