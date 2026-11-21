@@ -75,24 +75,6 @@
     const seek = document.querySelector('#real-seek');
     const clock = document.querySelector('#real-time');
     const fmt = value => { const s = Math.max(0, Math.floor(value || 0)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
-    const eyeMask = document.querySelector('#real-eye-mask-path');
-    const eyeGlow = document.querySelector('#real-glow-path');
-    const keys = [[0,80,46,29,31],[7.6,80,46,29,31],[9,64,42,30,30],[20,48,50,30,30],[32,36,53,30,30],[43,36,53,30,30],[44,69,62,31,31],[53.5,70,65,31,31]];
-    const focusAt = time => {
-      let i = 0;
-      while (i < keys.length - 1 && time >= keys[i + 1][0]) i++;
-      const a = keys[i], b = keys[Math.min(i + 1, keys.length - 1)];
-      const span = b[0] - a[0];
-      const k = span ? Math.min(1, Math.max(0, (time - a[0]) / span)) : 0;
-      const e = k * k * (3 - 2 * k);
-      return [a[1] + (b[1] - a[1]) * e, a[2] + (b[2] - a[2]) * e, a[3] + (b[3] - a[3]) * e, a[4] + (b[4] - a[4]) * e];
-    };
-    const setFocus = time => {
-      const [x, y, rx, ry] = focusAt(time);
-      const cx = x * 16, cy = y * 9, w = rx * 16, h = ry * 12;
-      const d = `M${cx - w} ${cy}C${cx - w * .35} ${cy - h} ${cx + w * .35} ${cy - h} ${cx + w} ${cy}C${cx + w * .35} ${cy + h} ${cx - w * .35} ${cy + h} ${cx - w} ${cy}Z`;
-      eyeMask.setAttribute('d', d); eyeGlow.setAttribute('d', d);
-    };
     const taskLabel = document.querySelector('#real-task-label');
     const taskNames = ['Task 1 : Push the Door', 'Task 2 : Pick the box then place', 'Task 3 : Push the chair'];
     const updateUI = time => {
@@ -102,28 +84,24 @@
       seek.value = time;
       clock.textContent = `${fmt(time)} / ${fmt(realVideo.duration || 53)}`;
     };
-    let frame = 0;
-    const tick = () => { if (realVideo.paused) return; setFocus(realVideo.currentTime); frame = requestAnimationFrame(tick); };
     const togglePlay = () => { if (realVideo.paused) realVideo.play().catch(() => {}); else realVideo.pause(); };
     const syncPlay = () => {
       const isPaused = realVideo.paused;
       playBtn.textContent = isPaused ? 'Play' : 'Pause';
       playBtn.setAttribute('aria-label', isPaused ? 'Play video' : 'Pause video');
-      cancelAnimationFrame(frame);
-      if (!isPaused) frame = requestAnimationFrame(tick);
     };
     playBtn.addEventListener('click', togglePlay);
     realVideo.addEventListener('click', togglePlay);
     realVideo.addEventListener('play', syncPlay);
-    realVideo.addEventListener('pause', () => { syncPlay(); setFocus(realVideo.currentTime); updateUI(realVideo.currentTime); });
-    realVideo.addEventListener('ended', () => { syncPlay(); setFocus(realVideo.currentTime); updateUI(realVideo.currentTime); });
+    realVideo.addEventListener('pause', () => { syncPlay(); updateUI(realVideo.currentTime); });
+    realVideo.addEventListener('ended', () => { syncPlay(); updateUI(realVideo.currentTime); });
     realVideo.addEventListener('timeupdate', () => updateUI(realVideo.currentTime));
-    realVideo.addEventListener('seeked', () => { setFocus(realVideo.currentTime); updateUI(realVideo.currentTime); });
-    realVideo.addEventListener('loadedmetadata', () => { seek.max = realVideo.duration; setFocus(realVideo.currentTime); updateUI(realVideo.currentTime); });
-    seek.addEventListener('input', () => { realVideo.currentTime = Number(seek.value); setFocus(Number(seek.value)); });
+    realVideo.addEventListener('seeked', () => updateUI(realVideo.currentTime));
+    realVideo.addEventListener('loadedmetadata', () => { seek.max = realVideo.duration; updateUI(realVideo.currentTime); });
+    seek.addEventListener('input', () => { const time = Number(seek.value); realVideo.currentTime = time; updateUI(time); });
     fullBtn.addEventListener('click', () => { if (document.fullscreenElement) document.exitFullscreen(); else if (player.requestFullscreen) player.requestFullscreen().catch(() => {}); });
-    chapters.forEach(card => card.addEventListener('click', () => { const time = Number(card.dataset.time); realVideo.currentTime = time; setFocus(time); updateUI(time); realVideo.play().catch(() => {}); }));
-    setFocus(0); updateUI(0);
+    chapters.forEach(card => card.addEventListener('click', () => { const time = Number(card.dataset.time); realVideo.currentTime = time; updateUI(time); realVideo.play().catch(() => {}); }));
+    updateUI(0);
   }
   const links=[...document.querySelectorAll('.header nav a')];
   const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)links.forEach(link=>{const current=link.hash===`#${entry.target.id}`;link.classList.toggle('active',current);if(current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});}),{rootMargin:'-15% 0px -65% 0px'});
