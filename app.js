@@ -67,13 +67,56 @@
   } catch(error) { document.querySelector('.load-error').hidden=false; console.error(error); }
   const realVideo = document.querySelector('#real-video');
   if (realVideo) {
+    const player = document.querySelector('#real-player');
     const chapters = [...document.querySelectorAll('.chapter-card')];
     const marks = [0, 7.6, 42.6];
-    const activate = time => chapters.forEach((card, index) => card.classList.toggle('active', index === (time >= marks[2] ? 2 : time >= marks[1] ? 1 : 0)));
-    chapters.forEach(card => card.addEventListener('click', () => { realVideo.currentTime = Number(card.dataset.time); realVideo.play().catch(() => {}); }));
-    realVideo.addEventListener('timeupdate', () => activate(realVideo.currentTime));
-    realVideo.addEventListener('loadedmetadata', () => activate(realVideo.currentTime));
-    activate(0);
+    const playBtn = document.querySelector('#real-play');
+    const fullBtn = document.querySelector('#real-full');
+    const seek = document.querySelector('#real-seek');
+    const clock = document.querySelector('#real-time');
+    const fmt = value => { const s = Math.max(0, Math.floor(value || 0)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+    const keys = [[0,79,44,25,51],[7.6,79,44,25,51],[9,63,40,26,50],[20,48,50,26,50],[32,36,53,26,50],[43,36,53,26,50],[44,70,64,28,46],[53.5,71,66,28,46]];
+    const focusAt = time => {
+      let i = 0;
+      while (i < keys.length - 1 && time >= keys[i + 1][0]) i++;
+      const a = keys[i], b = keys[Math.min(i + 1, keys.length - 1)];
+      const span = b[0] - a[0];
+      const k = span ? Math.min(1, Math.max(0, (time - a[0]) / span)) : 0;
+      const e = k * k * (3 - 2 * k);
+      return [a[1] + (b[1] - a[1]) * e, a[2] + (b[2] - a[2]) * e, a[3] + (b[3] - a[3]) * e, a[4] + (b[4] - a[4]) * e];
+    };
+    const setFocus = time => {
+      const [x, y, rx, ry] = focusAt(time);
+      player.style.setProperty('--fx', `${x}%`); player.style.setProperty('--fy', `${y}%`);
+      player.style.setProperty('--rx', `${rx}%`); player.style.setProperty('--ry', `${ry}%`);
+    };
+    const updateUI = time => {
+      chapters.forEach((card, index) => card.classList.toggle('active', index === (time >= marks[2] ? 2 : time >= marks[1] ? 1 : 0)));
+      seek.value = time;
+      clock.textContent = `${fmt(time)} / ${fmt(realVideo.duration || 53)}`;
+    };
+    let frame = 0;
+    const tick = () => { if (realVideo.paused) return; setFocus(realVideo.currentTime); frame = requestAnimationFrame(tick); };
+    const togglePlay = () => { if (realVideo.paused) realVideo.play().catch(() => {}); else realVideo.pause(); };
+    const syncPlay = () => {
+      const isPaused = realVideo.paused;
+      playBtn.textContent = isPaused ? 'Play' : 'Pause';
+      playBtn.setAttribute('aria-label', isPaused ? 'Play video' : 'Pause video');
+      cancelAnimationFrame(frame);
+      if (!isPaused) frame = requestAnimationFrame(tick);
+    };
+    playBtn.addEventListener('click', togglePlay);
+    realVideo.addEventListener('click', togglePlay);
+    realVideo.addEventListener('play', syncPlay);
+    realVideo.addEventListener('pause', () => { syncPlay(); setFocus(realVideo.currentTime); updateUI(realVideo.currentTime); });
+    realVideo.addEventListener('ended', () => { syncPlay(); setFocus(realVideo.currentTime); updateUI(realVideo.currentTime); });
+    realVideo.addEventListener('timeupdate', () => updateUI(realVideo.currentTime));
+    realVideo.addEventListener('seeked', () => { setFocus(realVideo.currentTime); updateUI(realVideo.currentTime); });
+    realVideo.addEventListener('loadedmetadata', () => { seek.max = realVideo.duration; setFocus(realVideo.currentTime); updateUI(realVideo.currentTime); });
+    seek.addEventListener('input', () => { realVideo.currentTime = Number(seek.value); setFocus(Number(seek.value)); });
+    fullBtn.addEventListener('click', () => { if (document.fullscreenElement) document.exitFullscreen(); else if (player.requestFullscreen) player.requestFullscreen().catch(() => {}); });
+    chapters.forEach(card => card.addEventListener('click', () => { const time = Number(card.dataset.time); realVideo.currentTime = time; setFocus(time); updateUI(time); realVideo.play().catch(() => {}); }));
+    setFocus(0); updateUI(0);
   }
   const links=[...document.querySelectorAll('.header nav a')];
   const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)links.forEach(link=>{const current=link.hash===`#${entry.target.id}`;link.classList.toggle('active',current);if(current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});}),{rootMargin:'-15% 0px -65% 0px'});
