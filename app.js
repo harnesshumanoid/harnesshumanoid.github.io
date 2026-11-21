@@ -77,12 +77,9 @@
     const seek = document.querySelector('#real-seek');
     const clock = document.querySelector('#real-time');
     const fmt = value => { const s = Math.max(0, Math.floor(value || 0)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
-    const taskLabel = document.querySelector('#real-task-label');
-    const taskNames = ['Task 1 : Push the Door', 'Task 2 : Pick the box then place', 'Task 3 : Push the chair'];
     const updateUI = time => {
       const index = time >= marks[2] ? 2 : time >= marks[1] ? 1 : 0;
       chapters.forEach((card, i) => card.classList.toggle('active', i === index));
-      taskLabel.textContent = taskNames[index];
       seek.value = time;
       clock.textContent = `${fmt(time)} / ${fmt(realVideo.duration || 53)}`;
     };

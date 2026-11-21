@@ -167,7 +167,6 @@ code { font-family:var(--font); font-size:.91em; letter-spacing:-.025em; overflo
 .real-player { position:relative; aspect-ratio:16/9; overflow:hidden; isolation:isolate; border:1px solid #d9d1e4; border-radius:18px; background:#191623; box-shadow:0 22px 55px -34px #3b295a5c; }
 .real-player:after { content:''; position:absolute; inset:0; z-index:2; pointer-events:none; border:1px solid #ffffff2e; border-radius:inherit; }
 .real-player video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
-.real-task-label { position:absolute; left:5%; top:7%; z-index:2; pointer-events:none; color:#ff2d55; font:600 clamp(16px,1.9vw,26px)/1.3 var(--display); letter-spacing:.01em; text-shadow:0 2px 12px #000d,0 0 2px #0009; }
 .real-bar { position:absolute; left:0; right:0; bottom:0; z-index:3; display:flex; align-items:center; gap:10px; padding:10px 14px 12px; background:linear-gradient(180deg,transparent 0%,#0b0812 42%,#0b0812 100%); color:#fff; font-size:12px; }
 .real-btn { flex:none; border:1px solid #ffffff30; border-radius:6px; background:#ffffff10; color:#fff; padding:5px 9px; font-size:12px; line-height:1.4; transition:background .2s,border-color .2s; }
 .real-btn:hover { background:#ffffff1f; border-color:#ffffff55; }
@@ -230,7 +229,7 @@ code { font-family:var(--font); font-size:.91em; letter-spacing:-.025em; overflo
  .station-grid .video-meta,.comparison-grid .video-meta { min-height:50px; font-size:12px; } .comparison-grid .video-meta strong { font-size:13px; } .outcome { padding:1px 5px; }
  .homes-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px 12px; } .home-card { padding:6px 6px 12px; border-radius:12px; }
  .home-heading { margin:11px 3px 8px; } .home-heading h3 { font-size:14px; } .task-sequence { gap:4px; padding:0 3px; } .task-sequence li { padding:2px 4px; }
- .real-player { border-radius:12px; } .real-task-label { left:5%; top:6%; font-size:13px; } .real-bar { gap:6px; padding:8px 9px 9px; } .real-btn { padding:4px 7px; font-size:11px; } .real-play { min-width:46px; } .real-time { font-size:11px; } .real-chapters { grid-template-columns:1fr; gap:10px; } .chapter-thumb { flex-basis:34%; } .chapter-copy strong { font-size:14px; }
+ .real-player { border-radius:12px; } .real-bar { gap:6px; padding:8px 9px 9px; } .real-btn { padding:4px 7px; font-size:11px; } .real-play { min-width:46px; } .real-time { font-size:11px; } .real-chapters { grid-template-columns:1fr; gap:10px; } .chapter-thumb { flex-basis:34%; } .chapter-copy strong { font-size:14px; }
  .footer { gap:14px; padding-block:25px; } .speed-note { font-size:12px; }
 }
 @media(max-width:380px) { .hero-subtitle { font-size:19px; } .task-heading { align-items:flex-start; } .task-heading span { max-width:80px; text-align:right; } }
