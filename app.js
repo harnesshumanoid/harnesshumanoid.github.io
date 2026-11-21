@@ -75,7 +75,9 @@
     const seek = document.querySelector('#real-seek');
     const clock = document.querySelector('#real-time');
     const fmt = value => { const s = Math.max(0, Math.floor(value || 0)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
-    const keys = [[0,79,44,25,51],[7.6,79,44,25,51],[9,63,40,26,50],[20,48,50,26,50],[32,36,53,26,50],[43,36,53,26,50],[44,70,64,28,46],[53.5,71,66,28,46]];
+    const eyeMask = document.querySelector('#real-eye-mask-path');
+    const eyeGlow = document.querySelector('#real-glow-path');
+    const keys = [[0,80,46,29,31],[7.6,80,46,29,31],[9,64,42,30,30],[20,48,50,30,30],[32,36,53,30,30],[43,36,53,30,30],[44,69,62,31,31],[53.5,70,65,31,31]];
     const focusAt = time => {
       let i = 0;
       while (i < keys.length - 1 && time >= keys[i + 1][0]) i++;
@@ -87,11 +89,16 @@
     };
     const setFocus = time => {
       const [x, y, rx, ry] = focusAt(time);
-      player.style.setProperty('--fx', `${x}%`); player.style.setProperty('--fy', `${y}%`);
-      player.style.setProperty('--rx', `${rx}%`); player.style.setProperty('--ry', `${ry}%`);
+      const cx = x * 16, cy = y * 9, w = rx * 16, h = ry * 12;
+      const d = `M${cx - w} ${cy}C${cx - w * .35} ${cy - h} ${cx + w * .35} ${cy - h} ${cx + w} ${cy}C${cx + w * .35} ${cy + h} ${cx - w * .35} ${cy + h} ${cx - w} ${cy}Z`;
+      eyeMask.setAttribute('d', d); eyeGlow.setAttribute('d', d);
     };
+    const taskLabel = document.querySelector('#real-task-label');
+    const taskNames = ['Task 1 : Push the Door', 'Task 2 : Pick the box then place', 'Task 3 : Push the chair'];
     const updateUI = time => {
-      chapters.forEach((card, index) => card.classList.toggle('active', index === (time >= marks[2] ? 2 : time >= marks[1] ? 1 : 0)));
+      const index = time >= marks[2] ? 2 : time >= marks[1] ? 1 : 0;
+      chapters.forEach((card, i) => card.classList.toggle('active', i === index));
+      taskLabel.textContent = taskNames[index];
       seek.value = time;
       clock.textContent = `${fmt(time)} / ${fmt(realVideo.duration || 53)}`;
     };
