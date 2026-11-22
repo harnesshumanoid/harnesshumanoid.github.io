@@ -13,6 +13,9 @@
     if (paused || document.hidden || video.closest('[hidden]')) return;
     if (video === heroIntro && introDone) return;
     if (video === heroLoop && !introDone) return;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.volume = 0;
     if (video.id === 'real-video') { video.play().catch(() => {}); return; }
     if (!video.getAttribute('src')) { video.src = video.dataset.src; video.load(); }
     video.play().catch(() => {});
@@ -31,6 +34,16 @@
     else { visible.delete(target); target.pause(); }
   }), {threshold: .08});
   const register = root => root.querySelectorAll('video').forEach(video => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.volume = 0;
+    video.removeAttribute('controls');
+    video.addEventListener('volumechange', () => {
+      if (!video.muted || video.volume !== 0) {
+        video.muted = true;
+        video.volume = 0;
+      }
+    });
     observer.observe(video);
     video.addEventListener('error', () => {
       if (video.parentElement.querySelector('.media-error')) return;
@@ -45,10 +58,10 @@
   document.addEventListener('visibilitychange', () => document.querySelectorAll('video').forEach(video => {if(document.hidden) video.pause();else if(visible.has(video)) play(video);}));
   register(document.querySelector('.hero'));
   const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const videoMarkup = (m,label) => `<div class="media-frame"><video controls muted loop playsinline preload="none" data-src="${escape(m.src)}" poster="${escape(m.poster)}" aria-label="${escape(label)}"></video></div>`;
+  const videoMarkup = (m,label) => `<div class="media-frame"><video muted loop playsinline preload="none" data-src="${escape(m.src)}" poster="${escape(m.poster)}" aria-label="${escape(label)}"></video></div>`;
   const outcome = value => `<span class="outcome ${value.toLowerCase()}">${value}</span>`;
   try {
-    const response = await fetch('video-manifest.json?v=20261122-contactfix');
+    const response = await fetch('video-manifest.json?v=20261122-seq07-silent');
     if (!response.ok) throw new Error('Manifest unavailable');
     const media = await response.json();
     const tasks = [['close_door','Close door'],['open_oven','Open oven'],['open_trash_can','Open trash can'],['push_office_chair','Push office chair'],['bend_pick','Bend & pick']];
@@ -68,6 +81,15 @@
   } catch(error) { document.querySelector('.load-error').hidden=false; console.error(error); }
   const realVideo = document.querySelector('#real-video');
   if (realVideo) {
+    realVideo.muted = true;
+    realVideo.defaultMuted = true;
+    realVideo.volume = 0;
+    realVideo.addEventListener('volumechange', () => {
+      if (!realVideo.muted || realVideo.volume !== 0) {
+        realVideo.muted = true;
+        realVideo.volume = 0;
+      }
+    });
     observer.observe(realVideo);
     const player = document.querySelector('#real-player');
     const chapters = [...document.querySelectorAll('.chapter-card')];
@@ -83,7 +105,7 @@
       seek.value = time;
       clock.textContent = `${fmt(time)} / ${fmt(realVideo.duration || 53)}`;
     };
-    const togglePlay = () => { if (realVideo.paused) realVideo.play().catch(() => {}); else realVideo.pause(); };
+    const togglePlay = () => { realVideo.muted = true; realVideo.volume = 0; if (realVideo.paused) realVideo.play().catch(() => {}); else realVideo.pause(); };
     const syncPlay = () => {
       const isPaused = realVideo.paused;
       playBtn.textContent = isPaused ? 'Play' : 'Pause';
