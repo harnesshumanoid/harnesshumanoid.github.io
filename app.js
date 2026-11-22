@@ -67,7 +67,7 @@
       if (!embedded) throw new Error('Embedded manifest unavailable');
       media = JSON.parse(embedded.textContent);
     } else {
-      const response = await fetch('video-manifest.json?v=20261122-oven-release');
+      const response = await fetch('video-manifest.json?v=20261122-trash-position4');
       if (!response.ok) throw new Error('Manifest unavailable');
       media = await response.json();
     }
