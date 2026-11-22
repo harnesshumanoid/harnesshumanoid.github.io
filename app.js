@@ -61,9 +61,16 @@
   const videoMarkup = (m,label) => `<div class="media-frame"><video muted loop playsinline preload="none" data-src="${escape(m.src)}" poster="${escape(m.poster)}" aria-label="${escape(label)}"></video></div>`;
   const outcome = value => `<span class="outcome ${value.toLowerCase()}">${value}</span>`;
   try {
-    const response = await fetch('video-manifest.json?v=20261122-oven-release');
-    if (!response.ok) throw new Error('Manifest unavailable');
-    const media = await response.json();
+    let media;
+    if (location.protocol === 'file:') {
+      const embedded = document.querySelector('#video-manifest-data');
+      if (!embedded) throw new Error('Embedded manifest unavailable');
+      media = JSON.parse(embedded.textContent);
+    } else {
+      const response = await fetch('video-manifest.json?v=20261122-oven-release');
+      if (!response.ok) throw new Error('Manifest unavailable');
+      media = await response.json();
+    }
     const tasks = [['close_door','Close door'],['open_oven','Open oven'],['open_trash_can','Open trash can'],['push_office_chair','Push office chair'],['bend_pick','Bend & pick']];
     const starts = document.querySelector('#starts-grid');
     starts.innerHTML = tasks.map(([key,title]) => `<div class="task-group" data-task-group="${key}"><div class="task-heading"><h3>${escape(title)}</h3><span>4 initial positions</span></div><div class="starts-row">${media.filter(m=>m.group==='starts'&&m.task===key).sort((a,b)=>a.start-b.start).map(m=>`<article class="video-card">${videoMarkup(m,`${title}, initial position ${m.start}, 3 times speed`)}<div class="video-meta"><strong>Initial position ${String(m.start).padStart(2,'0')}</strong><span>3×</span></div></article>`).join('')}</div></div>`).join('');
