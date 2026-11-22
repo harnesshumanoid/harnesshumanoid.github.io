@@ -48,7 +48,7 @@
   const videoMarkup = (m,label) => `<div class="media-frame"><video controls muted loop playsinline preload="none" data-src="${escape(m.src)}" poster="${escape(m.poster)}" aria-label="${escape(label)}"></video></div>`;
   const outcome = value => `<span class="outcome ${value.toLowerCase()}">${value}</span>`;
   try {
-    const response = await fetch('video-manifest.json?v=20261119-3x');
+    const response = await fetch('video-manifest.json?v=20261122-contactfix');
     if (!response.ok) throw new Error('Manifest unavailable');
     const media = await response.json();
     const tasks = [['close_door','Close door'],['open_oven','Open oven'],['open_trash_can','Open trash can'],['push_office_chair','Push office chair'],['bend_pick','Bend & pick']];

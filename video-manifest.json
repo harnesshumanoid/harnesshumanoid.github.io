@@ -535,8 +535,8 @@
   },
   {
     "id": "home10_spa_dressing_suite",
-    "src": "assets/final/home10_spa_dressing_suite-3x.mp4",
-    "poster": "assets/final/home10_spa_dressing_suite-3x.jpg",
+    "src": "assets/final/home10_spa_dressing_suite-3x-v2.mp4",
+    "poster": "assets/final/home10_spa_dressing_suite-3x-v2.jpg",
     "speed": 3,
     "duration": 63.72,
     "group": "homes",
@@ -559,8 +559,8 @@
   },
   {
     "id": "home11_double_galley_residence",
-    "src": "assets/final/home11_double_galley_residence-3x.mp4",
-    "poster": "assets/final/home11_double_galley_residence-3x.jpg",
+    "src": "assets/final/home11_double_galley_residence-3x-v3.mp4",
+    "poster": "assets/final/home11_double_galley_residence-3x-v3.jpg",
     "speed": 3,
     "duration": 71.08,
     "group": "homes",
@@ -583,8 +583,8 @@
   },
   {
     "id": "home12_attic_reading_suite",
-    "src": "assets/final/home12_attic_reading_suite-3x.mp4",
-    "poster": "assets/final/home12_attic_reading_suite-3x.jpg",
+    "src": "assets/final/home12_attic_reading_suite-3x-v3.mp4",
+    "poster": "assets/final/home12_attic_reading_suite-3x-v3.jpg",
     "speed": 3,
     "duration": 64.68,
     "group": "homes",
