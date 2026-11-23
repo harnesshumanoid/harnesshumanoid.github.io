@@ -100,7 +100,7 @@
     observer.observe(realVideo);
     const player = document.querySelector('#real-player');
     const chapters = [...document.querySelectorAll('.chapter-card')];
-    const marks = [0, 7.6, 42.6];
+    const marks = [0, 3.8, 21.3];
     const playBtn = document.querySelector('#real-play');
     const fullBtn = document.querySelector('#real-full');
     const seek = document.querySelector('#real-seek');
@@ -110,7 +110,7 @@
       const index = time >= marks[2] ? 2 : time >= marks[1] ? 1 : 0;
       chapters.forEach((card, i) => card.classList.toggle('active', i === index));
       seek.value = time;
-      clock.textContent = `${fmt(time)} / ${fmt(realVideo.duration || 53)}`;
+      clock.textContent = `${fmt(time)} / ${fmt(Math.ceil(realVideo.duration || 27))}`;
     };
     const togglePlay = () => { realVideo.muted = true; realVideo.volume = 0; if (realVideo.paused) realVideo.play().catch(() => {}); else realVideo.pause(); };
     const syncPlay = () => {

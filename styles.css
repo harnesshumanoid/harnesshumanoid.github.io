@@ -165,8 +165,9 @@ code { font-family:var(--font); font-size:.91em; letter-spacing:-.025em; overflo
 .real-section { border-top:1px solid var(--line); }
 .section-note { max-width:860px; margin-top:12px; color:var(--muted); font-size:15px; line-height:1.7; }
 .real-player { position:relative; aspect-ratio:16/9; overflow:hidden; isolation:isolate; border:1px solid #d9d1e4; border-radius:18px; background:#191623; box-shadow:0 22px 55px -34px #3b295a5c; }
+.real-player:before { content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(180deg,#1713211a,#17132124); }
 .real-player:after { content:''; position:absolute; inset:0; z-index:2; pointer-events:none; border:1px solid #ffffff2e; border-radius:inherit; }
-.real-player video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
+.real-player video { position:absolute; inset:0; z-index:0; width:100%; height:100%; object-fit:contain; }
 .real-bar { position:absolute; left:0; right:0; bottom:0; z-index:3; display:flex; align-items:center; gap:10px; padding:10px 14px 12px; background:linear-gradient(180deg,transparent 0%,#0b0812 42%,#0b0812 100%); color:#fff; font-size:12px; }
 .real-btn { flex:none; border:1px solid #ffffff30; border-radius:6px; background:#ffffff10; color:#fff; padding:5px 9px; font-size:12px; line-height:1.4; transition:background .2s,border-color .2s; }
 .real-btn:hover { background:#ffffff1f; border-color:#ffffff55; }
